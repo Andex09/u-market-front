@@ -16,13 +16,13 @@
     <mat-grid-tile appearance="fill">
       <mat-form-field appearance="outline">
         <mat-label>{{ "productos.nombre" | translate }}</mat-label>
-        <input matInput formControlName="nombre" type="text" maxlength="10" />
+        <input matInput formControlName="nombre" type="text" maxlength="50" />
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile appearance="fill">
       <mat-form-field appearance="outline">
         <mat-label>{{ "productos.descripcion" | translate }}</mat-label>
-        <input matInput formControlName="descripcion" type="text" />
+        <input matInput formControlName="descripcion" type="text" maxlength="255"/>
       </mat-form-field>
     </mat-grid-tile>
   </mat-grid-list>
@@ -35,7 +35,7 @@
     <mat-grid-tile appearance="fill">
       <mat-form-field appearance="outline">
         <mat-label>{{ "productos.referencia" | translate }}</mat-label>
-        <input matInput formControlName="referencia" type="text" />
+        <input matInput formControlName="referencia" type="text" maxlength="10"/>
       </mat-form-field>
     </mat-grid-tile>
 

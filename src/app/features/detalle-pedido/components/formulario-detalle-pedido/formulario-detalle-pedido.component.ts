@@ -87,6 +87,11 @@ export class FormularioDetallePedidoComponent implements OnInit {
     }
     const values = this.form.value;
 
+    if (values.cantidad > this.producto.unidadesDisponibles) {
+      SwalUtils.showAlert('Atención', `Las unidades disponibles del producto ${this.producto.nombre} son ${this.producto.unidadesDisponibles}, no se puede crear el detalle pedido`, 'error');
+      return;
+    }
+
     let detallePedido: CrearDetallePedidoRequest = {
       pedidoId: values.pedidoId,
       productoId: values.productoId,
@@ -126,14 +131,14 @@ export class FormularioDetallePedidoComponent implements OnInit {
     this.detallePedidoService.actualizarDetallePedido(detallePedido).subscribe(
       {
         next: (resp: DetallePedidoResponse) => {
-          SwalUtils.showAlert('Información', 'Cliente actualizado', 'success')
+          SwalUtils.showAlert('Información', 'Detalle pedido actualizado', 'success')
             .then(() => {
               this.dialogRef.close(resp);
             });
 
         },
         error: (error: any) => {
-          SwalUtils.showAlert('Atención', `Error actualizando el cliente: ${error}`, 'error');
+          SwalUtils.showAlert('Atención', `Error actualizando el detalle pedido: ${error}`, 'error');
         }
       }
     );
@@ -150,6 +155,8 @@ export class FormularioDetallePedidoComponent implements OnInit {
 
   changeProducto(e: any): void {
     this.producto = this.listProducto.filter(p => p.id === e.value)[0];
+    let cantidad: number = this.form.value.cantidad;
+    this.valor = cantidad * this.producto.precioUnitario;
   }
 
   modelChangeCantidad(e: any): void {

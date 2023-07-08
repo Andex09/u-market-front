@@ -34,7 +34,6 @@ export class ClientesComponent implements OnInit {
         this.listCliente = resp;
         this.dataSource = new MatTableDataSource<ClienteResponse>(resp);
         this.cargarPaginador();
-        console.log(resp);
       }
     );
   }
@@ -77,6 +76,7 @@ export class ClientesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        console.log(result);
         this.listCliente = [...this.listCliente, result];
         this.dataSource = new MatTableDataSource(this.listCliente);
         this.cargarPaginador();

@@ -4,13 +4,13 @@
           <mat-grid-tile appearance="fill">
               <mat-form-field appearance="outline">
                 <mat-label>{{'clientes.nombres' | translate}}</mat-label>
-                  <input matInput formControlName="nombres" type="text" maxlength="10">
+                  <input matInput formControlName="nombres" type="text" maxlength="50">
               </mat-form-field>
           </mat-grid-tile>
           <mat-grid-tile appearance="fill">
               <mat-form-field appearance="outline">
                 <mat-label>{{'clientes.apellidos' | translate}}</mat-label>
-                  <input matInput formControlName="apellidos" type="text">
+                  <input matInput formControlName="apellidos" type="text" maxlength="50">
               </mat-form-field>
           </mat-grid-tile>
       </mat-grid-list>
@@ -27,7 +27,7 @@
         <mat-grid-tile appearance="fill">
             <mat-form-field appearance="outline">
               <mat-label>{{'clientes.documento' | translate}}</mat-label>
-                <input matInput formControlName="documento" type="text">
+                <input matInput formControlName="documento" type="text" maxlength="50">
             </mat-form-field>
         </mat-grid-tile>
       </mat-grid-list>
