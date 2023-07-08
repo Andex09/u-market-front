@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { navData } from './core/data/navData';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'marketfront';
+  navData = navData;
+  mostrar: boolean = false;
+
+  toggleMenu(): void {
+    this.mostrar = !this.mostrar;
+  }
 }

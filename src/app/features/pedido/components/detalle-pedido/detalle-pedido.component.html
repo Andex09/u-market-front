@@ -1,0 +1,23 @@
+<h1 mat-dialog-title align="center">{{'pedidos.titulos.detalle' | translate}}</h1>
+<div mat-dialog-content>
+  <mat-list role="list">
+    <mat-list-item role="listitem">
+      {{ "pedidos.id" | translate }}: {{ pedido.id }}
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      {{ "pedidos.clienteNombre" | translate }}: {{ pedido.clienteNombre }}
+    </mat-list-item>
+    <mat-list-item role="estadoPedidoDescripcion">
+      {{ "pedidos.estadoPedidoDescripcion" | translate }}: {{ pedido.estadoPedidoId }}
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      {{ "pedidos.total" | translate }}: {{ pedido.total }}
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      {{ "pedidos.fecha" | translate }}: {{ pedido.fecha }}
+    </mat-list-item>
+  </mat-list>
+</div>
+<div mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close>{{'general.botones.cerrar' | translate}}</button>
+</div>

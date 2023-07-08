@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>{{(esActualizar? 'detallePedido.titulos.formularioActualizar': 'detallePedido.titulos.formularioCrear') | translate}}</h1>
+<form mat-dialog-content [formGroup]="form" *ngIf="isForm | async as isForm">
+      <mat-grid-list cols="2" rowHeight="80px">
+
+        <mat-grid-tile appearance="fill">
+          <mat-form-field appearance="outline">
+            <mat-label>{{'detallePedido.pedido' | translate}}</mat-label>
+            <mat-select formControlName="pedidoId" >
+              <mat-option *ngFor="let pedido of listPedido" [value]="pedido.id">{{pedido.id}} - {{pedido.clienteNombre}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile appearance="fill">
+          <mat-form-field appearance="outline">
+            <mat-label>{{'detallePedido.producto' | translate}}</mat-label>
+            <mat-select formControlName="productoId" >
+              <mat-option *ngFor="let producto of listProducto" [value]="producto.id">{{producto.nombre}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <mat-grid-list cols="2" rowHeight="80px">
+        <mat-grid-tile appearance="fill">
+          <mat-form-field appearance="outline">
+            <mat-label>{{"detallePedido.cantidad" | translate}}</mat-label>
+            <input matInput formControlName="cantidad" type="number" />
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile appearance="fill">
+            <mat-form-field appearance="outline">
+              <mat-label>{{'detallePedido.valor' | translate}}</mat-label>
+                <input matInput formControlName="valor" type="text">
+            </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+
+  </form>
+  <mat-dialog-actions align="center">
+    <button mat-raised-button mat-dialog-close>{{'general.botones.cerrar' | translate}}</button>
+    <button mat-raised-button color="primary" (click)="procesarOperacion()" cdkFocusInitial>{{ (esActualizar? 'general.botones.actualizar' : 'general.botones.crear') | translate}}</button>
+  </mat-dialog-actions>

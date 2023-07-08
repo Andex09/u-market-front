@@ -1,0 +1,21 @@
+<h1 mat-dialog-title align="center">
+  {{ "categorias.titulos.detalle" | translate }}
+</h1>
+<div mat-dialog-content>
+  <mat-list role="list">
+    <mat-list-item role="listitem">
+      {{ "categorias.id" | translate }}: {{ categoria.id }}
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      {{ "categorias.nombre" | translate }}: {{ categoria.nombre }}
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      {{ "categorias.descripcion" | translate }}: {{ categoria.descripcion }}
+    </mat-list-item>
+  </mat-list>
+</div>
+<div mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close>
+    {{ "general.botones.cerrar" | translate }}
+  </button>
+</div>

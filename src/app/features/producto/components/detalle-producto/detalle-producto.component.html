@@ -1,0 +1,29 @@
+<h1 mat-dialog-title align="center">{{'productos.titulos.detalle' | translate}}</h1>
+<div mat-dialog-content>
+  <mat-list role="list">
+    <mat-list-item role="listitem">
+      {{ "productos.id" | translate }}: {{ producto.id }}
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      {{ "productos.nombre" | translate }}: {{ producto.nombre }}
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      {{ "productos.referencia" | translate }}: {{ producto.referencia }}
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      {{ "productos.descripcion" | translate }}: {{ producto.descripcion }}
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      {{ "productos.categoria" | translate }}: {{ producto.nombreCategoria }}
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      {{ "productos.precioUnitario" | translate }}: {{ producto.precioUnitario }}
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      {{ "productos.unidadesDisponibles" | translate }}: {{ producto.unidadesDisponibles }}
+    </mat-list-item>
+  </mat-list>
+</div>
+<div mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close>{{'general.botones.cerrar' | translate}}</button>
+</div>

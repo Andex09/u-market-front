@@ -1,0 +1,33 @@
+<h4>
+  {{'productos.titulo' | translate}}
+</h4>
+
+<button mat-raised-button color="primary" (click)="crearProductoDialog()">Crear</button>
+
+  <mat-table [dataSource]="dataSource" matSort>
+    <ng-container [matColumnDef]="column" *ngFor="let column of listColumnas; let i = index">
+        <span *ngIf="column != 'opciones'">
+            <mat-header-cell *matHeaderCellDef>{{ "productos." + column | translate }}</mat-header-cell>
+            <mat-cell *matCellDef="let producto">{{ producto[column] }}</mat-cell>
+        </span>
+
+        <span *ngIf="column === 'opciones'">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let producto">
+              <button mat-icon-button matTooltip="Ver Detalle" (click)="verDetalle(producto)">
+                <mat-icon fontIcon="visibility"></mat-icon>
+              </button>
+              <button mat-icon-button matTooltip="Editar" (click)="editarProducto(producto)">
+                <mat-icon fontIcon="edit"></mat-icon>
+              </button>
+            </mat-cell>
+        </span>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="listColumnas"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: listColumnas"></mat-row>
+
+</mat-table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+

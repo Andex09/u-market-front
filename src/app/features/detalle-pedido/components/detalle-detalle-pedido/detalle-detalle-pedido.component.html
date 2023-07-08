@@ -1,0 +1,23 @@
+<h1 mat-dialog-title align="center">{{'pedidos.titulos.detalle' | translate}}</h1>
+<div mat-dialog-content>
+  <mat-list role="list">
+    <mat-list-item role="listitem">
+      {{ "detallePedido.id" | translate }}: {{ detallePedido.id }}
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      {{ "detallePedido.pedidoId" | translate }}: {{ detallePedido.pedidoId }}
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      {{ "detallePedido.producto" | translate }}: {{ detallePedido.productoNombre }}
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      {{ "detallePedido.cantidad" | translate }}: {{ detallePedido.cantidad }}
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      {{ "detallePedido.valor" | translate }}: {{ detallePedido.valor }}
+    </mat-list-item>
+  </mat-list>
+</div>
+<div mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close>{{'general.botones.cerrar' | translate}}</button>
+</div>

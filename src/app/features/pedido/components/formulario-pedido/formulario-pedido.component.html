@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>{{(esActualizar? 'pedidos.titulos.formularioActualizar': 'pedidos.titulos.formularioCrear') | translate}}</h1>
+<form mat-dialog-content [formGroup]="form" *ngIf="isForm | async as isForm">
+<mat-grid-list cols="2" rowHeight="80px">
+  <mat-grid-tile appearance="fill">
+        <mat-form-field appearance="outline">
+          <mat-label>{{'pedidos.clienteNombre' | translate}}</mat-label>
+          <mat-select formControlName="clienteId" >
+            <mat-option *ngFor="let cliente of listClientes" [value]="cliente.id">{{cliente.nombres}} {{cliente.apellidos}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile appearance="fill">
+    <mat-form-field appearance="outline">
+      <mat-label>{{'pedidos.estadoPedidoDescripcion' | translate}}</mat-label>
+      <mat-select formControlName="estadoPedidoId" >
+        <mat-option *ngFor="let estadoPedido of listEstadoPedido" [value]="estadoPedido.id">{{estadoPedido.descripcion}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+</mat-grid-tile>
+</mat-grid-list>
+
+<mat-grid-list cols="2" rowHeight="80px">
+  <mat-grid-tile appearance="fill">
+      <mat-form-field appearance="outline">
+        <mat-label>{{'pedidos.total' | translate}}</mat-label>
+          <input matInput formControlName="total" type="number" maxlength="10">
+      </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile appearance="fill">
+      <mat-form-field appearance="outline">
+        <mat-label>{{'pedidos.fecha' | translate}}</mat-label>
+          <input matInput formControlName="fecha" type="date">
+      </mat-form-field>
+  </mat-grid-tile>
+</mat-grid-list>
+</form>
+<mat-dialog-actions align="center">
+  <button mat-raised-button mat-dialog-close>{{'general.botones.cerrar' | translate}}</button>
+  <button mat-raised-button color="primary" (click)="procesarOperacion()" cdkFocusInitial>{{ (esActualizar? 'general.botones.actualizar' : 'general.botones.crear') | translate}}</button>
+</mat-dialog-actions>

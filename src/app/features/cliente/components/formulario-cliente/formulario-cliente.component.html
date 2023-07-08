@@ -1,0 +1,49 @@
+<h1 mat-dialog-title>{{(esActualizar? 'clientes.titulos.formularioActualizar': 'clientes.titulos.formularioCrear') | translate}}</h1>
+<form mat-dialog-content [formGroup]="form" *ngIf="isForm | async as isForm">
+      <mat-grid-list cols="2" rowHeight="80px">
+          <mat-grid-tile appearance="fill">
+              <mat-form-field appearance="outline">
+                <mat-label>{{'clientes.nombres' | translate}}</mat-label>
+                  <input matInput formControlName="nombres" type="text" maxlength="10">
+              </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile appearance="fill">
+              <mat-form-field appearance="outline">
+                <mat-label>{{'clientes.apellidos' | translate}}</mat-label>
+                  <input matInput formControlName="apellidos" type="text">
+              </mat-form-field>
+          </mat-grid-tile>
+      </mat-grid-list>
+
+      <mat-grid-list cols="2" rowHeight="80px">
+        <mat-grid-tile appearance="fill">
+              <mat-form-field appearance="outline">
+                <mat-label>{{'clientes.tipoDocumentoDescripcion' | translate}}</mat-label>
+                <mat-select formControlName="tipoDocumentoId" >
+                  <mat-option *ngFor="let tipoDocumento of listTipoDocumento" [value]="tipoDocumento.id">{{tipoDocumento.descripcion}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile appearance="fill">
+            <mat-form-field appearance="outline">
+              <mat-label>{{'clientes.documento' | translate}}</mat-label>
+                <input matInput formControlName="documento" type="text">
+            </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <mat-grid-list cols="2" rowHeight="80px">
+        <mat-grid-tile appearance="fill">
+              <mat-form-field appearance="outline">
+                <mat-label>{{'clientes.estado' | translate}}</mat-label>
+                <mat-select formControlName="estado" >
+                  <mat-option *ngFor="let estado of listEstadoCliente" [value]="estado.id">{{estado.descripcion}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+  </form>
+  <mat-dialog-actions align="center">
+    <button mat-raised-button mat-dialog-close>{{'general.botones.cerrar' | translate}}</button>
+    <button mat-raised-button color="primary" (click)="procesarOperacion()" cdkFocusInitial>{{ (esActualizar? 'general.botones.actualizar' : 'general.botones.crear') | translate}}</button>
+  </mat-dialog-actions>

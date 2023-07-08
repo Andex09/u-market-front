@@ -1,0 +1,34 @@
+<h2>
+  {{'detallePedido.titulo' | translate}}
+</h2>
+<button
+  mat-raised-button
+  color="primary"
+  (click)="crearDetallePedido()"
+>
+{{"general.botones.crear" | translate}}
+</button>
+  <mat-table [dataSource]="dataSource" matSort>
+    <ng-container [matColumnDef]="column" *ngFor="let column of listColumnas; let i = index">
+        <span *ngIf="column != 'opciones'">
+            <mat-header-cell *matHeaderCellDef>{{ "detallePedido." + column | translate }}</mat-header-cell>
+            <mat-cell *matCellDef="let detallePedido">{{ detallePedido[column] }}</mat-cell>
+        </span>
+
+        <span *ngIf="column === 'opciones'">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let detallePedido">
+            <button mat-icon-button matTooltip="Ver Detalle" (click)="verDetalle(detallePedido)">
+              <mat-icon fontIcon="visibility"></mat-icon>
+            </button>
+            <button mat-icon-button matTooltip="Editar" (click)="editarDetallePedido(detallePedido)">
+              <mat-icon fontIcon="edit"></mat-icon>
+            </button>
+          </mat-cell>
+      </span>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="listColumnas"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: listColumnas"></mat-row>
+</mat-table>
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>

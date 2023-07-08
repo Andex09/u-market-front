@@ -1,0 +1,89 @@
+{
+  "general": {
+    "botones": {
+      "cerrar": "Cerrar",
+      "ok": "Ok",
+      "crear": "Crear",
+      "actualizar": "Actualizar"
+    }
+  },
+  "categorias": {
+    "titulo": "Categorias",
+    "id": "Id",
+    "nombre": "Nombre",
+    "descripcion": "Descripción",
+    "ingreseNombre": "Ingresar nombre",
+    "ingreseDescripcion": "Ingresar descripción",
+    "titulos": {
+      "formularioCrear": "Crear categoría",
+      "formularioActualizar": "Actualizar categoría",
+      "detalle": "Detalle categoría"
+    }
+  },
+  "productos": {
+    "titulo": "Productos",
+    "id": "Id",
+    "nombre": "Nombre",
+    "descripcion": "Descripción",
+    "referencia": "Referencia",
+    "categoria": "Categoría",
+    "precioUnitario": "Precio unitario",
+    "unidadesDisponibles": "Unidades disponibles",
+    "titulos": {
+      "formularioCrear": "Crear producto",
+      "formularioActualizar": "Actualizar producto",
+      "detalle": "Detalle producto"
+    }
+  },
+  "clientes": {
+    "titulo": "Clientes",
+    "id": "Id",
+    "nombres": "Nombres",
+    "apellidos": "Apellidos",
+    "tipoDocumentoDescripcion": "Tipo documento",
+    "documento": "Documento",
+    "estado": "Estado",
+    "titulos": {
+      "formularioCrear": "Crear cliente",
+      "formularioActualizar": "Actualizar cliente",
+      "detalle": "Detalle cliente"
+    }
+  },
+  "pedidos": {
+    "titulo": "Pedidos",
+    "id": "id",
+    "clienteNombre": "Cliente",
+    "estadoPedidoDescripcion": "Estado",
+    "fecha": "Fecha",
+    "total": "Total",
+    "titulos": {
+      "formularioCrear": "Crear pedido",
+      "formularioActualizar": "Actualizar pedido",
+      "detalle": "Detalle pedido"
+    }
+  },
+  "detallePedido": {
+    "titulo": "Detalles Pedido",
+    "id": "id",
+    "producto": "Producto",
+    "pedido": "Pedido",
+    "cantidad": "Cantidad",
+    "pedidoId": "Pedido",
+    "productoNombre": "Producto",
+    "valor": "valor",
+    "ingreseProducto": "Ingresar producto",
+    "ingresePedido": "Ingresar pedido",
+    "titulos": {
+      "formularioCrear": "Crear pedido",
+      "formularioActualizar": "Actualizar pedido",
+      "detalle": "Detalle pedido"
+    }
+  },
+  "sidenav": {
+    "categorias": "Categorías",
+    "productos": "Productos",
+    "clientes": "Clientes",
+    "pedidos": "Pedidos",
+    "detallePedido": "Detalle Pedido"
+  }
+}

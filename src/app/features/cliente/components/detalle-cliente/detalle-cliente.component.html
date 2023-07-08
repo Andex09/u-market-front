@@ -1,0 +1,26 @@
+<h1 mat-dialog-title align="center">{{'clientes.titulos.detalle' | translate}}</h1>
+<div mat-dialog-content>
+  <mat-list role="list">
+    <mat-list-item role="listitem">
+      {{ "clientes.id" | translate }}: {{ cliente.id }}
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      {{ "clientes.nombres" | translate }}: {{ cliente.nombres }}
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      {{ "clientes.apellidos" | translate }}: {{ cliente.apellidos }}
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      {{ "clientes.tipoDocumento" | translate }}: {{ cliente.tipoDocumentoDescripcion }}
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      {{ "clientes.documento" | translate }}: {{ cliente.documento }}
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      {{ "clientes.estado" | translate }}: {{ cliente.estado }}
+    </mat-list-item>
+  </mat-list>
+</div>
+<div mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close>{{'general.botones.cerrar' | translate}}</button>
+</div>
