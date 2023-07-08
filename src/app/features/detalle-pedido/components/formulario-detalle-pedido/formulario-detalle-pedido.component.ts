@@ -23,6 +23,9 @@ export class FormularioDetallePedidoComponent implements OnInit {
   isForm!: Promise<any>
   esActualizar: boolean = false
 
+  producto!: ProductoResponse
+  valor: number = 0;
+
   constructor(
     private productoService: ProductoService,
     private pedidoService: PedidoService,
@@ -60,7 +63,6 @@ export class FormularioDetallePedidoComponent implements OnInit {
         pedidoId: new FormControl(null, [Validators.required]),
         productoId: new FormControl(null, [Validators.required]),
         cantidad: new FormControl(null, [Validators.required]),
-        valor: new FormControl(null, [Validators.required]),
       }))
     );
   }
@@ -72,8 +74,8 @@ export class FormularioDetallePedidoComponent implements OnInit {
         pedidoId: detallePedido.pedidoId,
         productoId: detallePedido.productoId,
         cantidad: detallePedido.cantidad,
-        valor: detallePedido.valor
       });
+      this.valor = detallePedido.valor;
       this.esActualizar = true;
     }
   }
@@ -89,14 +91,14 @@ export class FormularioDetallePedidoComponent implements OnInit {
       pedidoId: values.pedidoId,
       productoId: values.productoId,
       cantidad: values.cantidad,
-      valor: values.valor
+      valor: this.valor
     }
     this.detallePedidoService.crearDetallePedido(detallePedido).subscribe(
       {
         next: (resp: DetallePedidoResponse) => {
           SwalUtils.showAlert('Información', 'Detalle pedido creado', 'success')
             .then(() => {
-
+              this.dialogRef.close(resp);
             });
 
         },
@@ -119,7 +121,7 @@ export class FormularioDetallePedidoComponent implements OnInit {
       productoId: values.productoId,
       pedidoId: values.pedidoId,
       cantidad: values.cantidad,
-      valor: values.valor
+      valor: this.valor
     }
     this.detallePedidoService.actualizarDetallePedido(detallePedido).subscribe(
       {
@@ -146,4 +148,17 @@ export class FormularioDetallePedidoComponent implements OnInit {
     }
   }
 
+  changeProducto(e: any): void {
+    this.producto = this.listProducto.filter(p => p.id === e.value)[0];
+  }
+
+  modelChangeCantidad(e: any): void {
+    if (e === null || this.producto === null) {
+      this.valor = 0;
+    }
+
+    if (this.producto != null) {
+      this.valor = e * this.producto.precioUnitario;
+    }
+  }
 }

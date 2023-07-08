@@ -74,8 +74,8 @@
     "ingreseProducto": "Ingresar producto",
     "ingresePedido": "Ingresar pedido",
     "titulos": {
-      "formularioCrear": "Crear pedido",
-      "formularioActualizar": "Actualizar pedido",
+      "formularioCrear": "Crear detalle pedido",
+      "formularioActualizar": "Actualizar detalle pedido",
       "detalle": "Detalle pedido"
     }
   },
